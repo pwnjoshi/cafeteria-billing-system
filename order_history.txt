@@ -1,0 +1,4 @@
+Item: hello, Quantity: 2, Total Price: $830.00
+Item: Buffalo, Quantity: 1, Total Price: $100.00
+Item: Buffalo, Quantity: 6, Total Price: $600.00Item: deoo, Quantity: 15, Total Price: $3135.00
+Item: Buffalo, Quantity: 14, Total Price: $1400.00
