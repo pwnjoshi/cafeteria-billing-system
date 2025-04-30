@@ -1,3 +1,5 @@
 Buffalo 100.00
-hello 415.00
-deoo 209.00HELLO 70.00
+hello 100.00
+deoo 100.00
+HELLO 100.00
+COKIES 15.00

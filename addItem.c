@@ -22,5 +22,12 @@ int addItem() {
     fclose(file);
 
     printf("Item added successfully!\n");
+    printf("=====================\n");
+    printf("Press any key to continue...\n");
+    getchar(); // Wait for user input
+    getchar(); // Clear the newline character from the input buffer
+
+    printf("\n"); // Print a newline for better readability
+    printf("=====================\n");
     return 0; // Return success code
 }

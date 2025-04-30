@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "manageMenu.h"
 #include "addItem.h" // Include the addItem function header
+#include "updateItem.h" // Added updateItem header
+#include "deleteItem.h" // Added deleteItem header
+#include "viewItems.h" // Added viewItems header
 
 void manageMenu(){
     int choice;
@@ -15,17 +18,20 @@ void manageMenu(){
 
     switch (choice) {
         case 1:
-            printf("Adding item...\n"); // Placeholder
+            printf("Adding item...\n"); 
             addItem(); // Call the addItem function from addItem.c
             break;
         case 2:
-            printf("Updating item...\n"); // Placeholder
+            printf("Updating item...\n");
+            updateItem(); // Call the updateItem function 
             break;
         case 3:
-            printf("Deleting item...\n"); // Placeholder
+            printf("Deleting item...\n");
+            deleteItem(); // Call the deleteItem function
             break;
         case 4:
-            printf("Viewing items...\n"); // Placeholder
+            printf("Viewing items...\n");
+            viewItems(); // Call the viewItems function
             break;
         case 5:
             return; // Go back to main menu
