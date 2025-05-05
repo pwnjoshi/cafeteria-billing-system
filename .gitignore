@@ -1,0 +1,32 @@
+# 💻 Executable files
+cafeteria
+cafeteria.exe
+
+# 🧠 OS-specific junk
+.DS_Store
+Thumbs.db
+
+# 🛠️ Editor/IDE settings
+.vscode/
+*.code-workspace
+*.sublime-workspace
+*.sublime-project
+
+# 🔄 Swap and backup files
+*.swp
+*.swo
+*.bak
+*.tmp
+*.old
+
+# 🛠️ Compiler-generated files
+*.o
+*.obj
+*.out
+
+# 📄 Log files
+*.log
+
+# 🚫 Sensitive data (if any in future)
+# credentials.json
+# .env
