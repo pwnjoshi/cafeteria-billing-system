@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "utils.h" 
+#include "deleteItem.h" 
 
 void deleteItem()
 {
-    char currentItem[50];
-    float currentPrice;
     int index = 0, choice, found = 0;
 
     // Open the menu file in read mode
@@ -91,22 +91,15 @@ void deleteItem()
         }
         fclose(file);
 
-        printf("=====================\n");
-        printf("Press any key to continue...\n");
-        getchar(); // Wait for user input
-        getchar(); // Clear the newline character from the input buffer
+        printf("=====================\n\n");
+        pauseExecution();
     }
     else
     {
         printf("Item not found in the menu.\n");
         remove("temp_menu.txt"); // Clean up temporary file if item not found
 
-        printf("=====================\n");
-        printf("Press any key to continue...\n");
-        getchar(); // Wait for user input
-        getchar(); // Clear the newline character from the input buffer
-
-        printf("\n"); // Print a newline for better readability
-        printf("=====================\n");
+        printf("=====================\n\n");
+        pauseExecution();
     }
 }

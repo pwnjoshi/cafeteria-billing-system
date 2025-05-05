@@ -2,17 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-
-typedef struct {
-    char name[50];
-    float price;
-} MenuItem;
-
-typedef struct {
-    int menuIndex;
-    int quantity;
-} OrderItem;
-
+#include "processNewOrder.h"
+#include "utils.h"
 void processNewOrder() {
     MenuItem menu[100];
     int menuCount = 0;
@@ -25,9 +16,10 @@ void processNewOrder() {
     char timeString[50];
 
     // Get customer name
+    getchar(); 
+    printf("======================================\n");
     printf("Enter customer name: ");
-    scanf("%s", customerName);
-    getchar(); // Clear the newline character
+    scanf("%[^\n]s", customerName);
 
     // Get current time
     time(&orderTime);
@@ -99,7 +91,12 @@ void processNewOrder() {
         scanf("%f", &discountPercentage);
         if (discountPercentage < 0 || discountPercentage > 100) {
             printf("Invalid discount percentage.\n");
-            return;
+            printf("Reenter discount percentage:\n ");
+            scanf("%f", &discountPercentage);
+            if (discountPercentage < 0 || discountPercentage > 100) {
+                printf("Invalid discount percentage. No discount applied.\n\n");
+                applyDiscount = 0; // Set to no discount
+            }
         }
         discountAmount = totalPrice * (discountPercentage / 100);
         printf("Discount applied: $%.2f\n\n", discountAmount);
@@ -169,8 +166,5 @@ void processNewOrder() {
     printf("==============================\n");
     
     printf("Thank you for your order, %s!\n", customerName);
-    printf("Press any key to continue...\n");
-    getchar(); // Wait for user input before returning to the main menu
-    getchar(); // Clear the newline character from the input buffer
-    printf("\n"); // Print a newline for better readability
+    pauseExecution();
 }

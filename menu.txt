@@ -1,5 +1,10 @@
-Buffalo 100.00
-hello 100.00
-deoo 100.00
-HELLO 100.00
-COKIES 15.00
+a 1.00
+b 2.00
+c 3.00
+d 4.00
+e 2.00
+Demo 0.00
+ds 0.00
+sd 0.00
+dasd 12.00
+tyfh 21.00

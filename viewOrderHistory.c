@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "utils.h"
 
 void viewOrderHistory()
 {
@@ -17,13 +18,10 @@ void viewOrderHistory()
     {
         printf("%s", line);
     }
-    printf("---------------------\n");
     fclose(file);
-    printf("=====================\n");
-    printf("Press any key to continue...\n");
-    getchar(); // Wait for user input
-    getchar(); // Clear the newline character from the input buffer
+    printf("=====================\n\n");
+    printf("\n");
+    pauseExecution();
 
-    printf("\n"); // Print a newline for better readability
-    printf("=====================\n");
+    
 }

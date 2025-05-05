@@ -3,6 +3,8 @@
         "string.h": "c",
         "auth.h": "c",
         "stdio.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "utils.h": "c",
+        "additem.h": "c"
     }
 }

@@ -1,6 +1,9 @@
 #ifndef ADDITEM_H
 #define ADDITEM_H
 
-void addItem();
+int addItem();
 
-#endif // MANAGE_MENU_H
+char itemName[50];
+float itemPrice;
+
+#endif // ADDITEM_H

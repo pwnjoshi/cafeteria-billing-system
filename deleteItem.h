@@ -3,4 +3,8 @@
 
 void deleteItem();
 
-#endif // DELETEITEM_H
+char currentItem[50];
+float currentPrice;
+
+
+#endif // DELETEITEM_H

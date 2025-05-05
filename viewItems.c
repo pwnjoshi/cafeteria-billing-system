@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "utils.h"
+#include "viewItems.h"
 
 void viewItems() {
     char itemName[50];
@@ -20,13 +22,9 @@ void viewItems() {
     if (index == 0) {
         printf("Menu is empty.\n");
     }
-    
-    printf("=====================\n");
-    
+        
     fclose(file);
-    printf("Press any key to continue...\n");
-    getchar(); // Wait for user input
-    getchar(); // Clear the newline character from the input buffer
-    printf("\n"); // Print a newline for better readability
-    printf("=====================\n");
+    printf("\n"); 
+    printf("=====================\n\n");
+    pauseExecution(); 
 }

@@ -1,20 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "updateItem.h"
+#include "utils.h"
 
 void updateItem()
 {
-    char currentItem[50];
-    float currentPrice;
-    int index = 0, choice, found = 0;
-
-    // Open the menu file in read mode
-    FILE *file = fopen("menu.txt", "r");
+    int index = 0, choice = 0, found = 0;
+    FILE *file = fopen("menu.txt", "r"); // Open the menu file in read mode
     if (!file)
     {
         printf("Unable to open file.\n");
         return;
     }
+
+    clearScreen();
+    printf("\n===== Update Item =====\n");
 
     // Display the menu with indices
     printf("Menu:\n");
@@ -30,7 +31,6 @@ void updateItem()
         return;
     }
 
-    // Ask the user to select an item by index
     printf("Enter the index of the item to update: ");
     scanf("%d", &choice);
 
@@ -40,8 +40,7 @@ void updateItem()
         return;
     }
 
-    // Reopen the menu file to read and create a temporary file
-    file = fopen("menu.txt", "r");
+    file = fopen("menu.txt", "r"); 
     FILE *tempFile = fopen("temp_menu.txt", "w");
     if (!tempFile)
     {
@@ -51,9 +50,6 @@ void updateItem()
     }
 
     index = 0;
-    char newItemName[50];
-    float newPrice;
-
     // Read each item from the original file and write to the temporary file
     while (fscanf(file, "%s %f", currentItem, &currentPrice) != EOF)
     {
@@ -82,29 +78,35 @@ void updateItem()
 
     if (found)
     {
-        printf("Item updated successfully!\n");
+        clearScreen();
+        printf("Item updated successfully!\n\n");
         printf("Updated Menu:\n");
+        printf("=====================\n");
         file = fopen("menu.txt", "r");
         while (fscanf(file, "%s %f", currentItem, &currentPrice) != EOF)
         {
             printf("%s - %.2f\n", currentItem, currentPrice); // Display updated menu
         }
+        printf("\n=====================\n\n");
         fclose(file);
 
-        printf("Enter any key to continue...\n");
-        getchar(); // Clear the newline character from the input buffer
-        getchar(); // Wait for user input before returning to the main menu
+        printf("Do you want to update another item? (y/n): ");
+        char anotherChoice;
+        scanf(" %c", &anotherChoice); // Space before %c to consume newline character
+        if (anotherChoice == 'y' || anotherChoice == 'Y')
+        {
+            updateItem(); // Call updateItem again for another update
+        }
+        else
+        {
+        pauseExecution(); 
+        }
+       
     }
     else
     {
-        printf("Item not found in the menu.\n");
+        printf("Item not found in the menu.\n\n");
         remove("temp_menu.txt"); // Clean up temporary file if item not found
-
-        printf("Enter any key to continue...\n");
-        getchar(); // Clear the newline character from the input buffer
-        getchar(); // Wait for user input before returning to the main menu
-
-        printf("\n"); // Print a newline for better readability
-        printf("=====================\n");
+        pauseExecution(); 
     }
 }
