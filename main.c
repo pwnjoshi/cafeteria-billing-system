@@ -5,6 +5,12 @@
 #include "processNewOrder.h"  
 #include "viewOrderHistory.h" 
 #include "utils.h"
+#include "addItem.h"
+#include "deleteItem.h"
+#include "updateItem.h"
+#include "viewItems.h"
+
+
 int main()
 {
     int choice;       
@@ -13,9 +19,8 @@ int main()
     while (1)
     { 
         if (!loggedIn)
-        { // If the user is not logged in
-            // Display initial login/signup menu
-            clearScreen(); // Clear the screen for better visibility
+        { 
+            clearScreen(); 
             printf("\n===== Cafeteria Billing System =====\n");
             printf("\n--- MENU ---\n");
             printf("1. Sign Up\n");
@@ -28,26 +33,24 @@ int main()
             {
             case 1:
              clearScreen(); 
-                signup(); // Call the signup function to register a new user
+                signup();
                 break;
             case 2:
              clearScreen();
-                loggedIn = login(loggedIn); // Call the login function and update login status
+                loggedIn = login(loggedIn); 
                 break;
             case 3:
-                exit(0); // Exit the program
+                exit(0);
             default:
              clearScreen();
-                printf("Invalid choice!\n"); // Handle invalid input
+                printf("Invalid choice!\n"); 
                 printf("Please enter a valid choice.\n");
-               pauseExecution(); // Pause execution to allow the user to read the message
+               pauseExecution();
             }
         }
 
         else
-        { // If the user is logged in
-            // Display mvoid clearScreen()ain menu after successful login
-            void clearScreen(); // Clear the screen for better visibility
+        { 
             clearScreen();
             printf("\n===== Cafeteria Billing System =====\n");
             printf("\n--- MAIN MENU ---\n");
@@ -65,33 +68,33 @@ int main()
             case 1:
             clearScreen();
                 printf("Managing Menu...\n");
-                manageMenu(); // Call the manageMenu function to handle menu operations
+                manageMenu(); 
                 break;
             case 2:
             clearScreen();
                 printf("Processing New Order...\n");
-                processNewOrder(); // Call the processNewOrder function to handle new orders
+                processNewOrder(); 
                 break;
             case 3:
             clearScreen();
                 printf("Viewing Order History...\n");
-                viewOrderHistory(); // Call the viewOrderHistory function to display past orders
+                viewOrderHistory(); 
                 break;
             case 4:
             clearScreen();
                 printf("Logging out...\n");
-                loggedIn = 0; // Reset login status to go back to the login menu
+                loggedIn = 0;
                 break;
             case 5:
-                exit(0); // Exit the program
+                exit(0); 
             default:
             clearScreen();
-                printf("Invalid choice!\n"); // Handle invalid input
+                printf("Invalid choice!\n"); 
                 printf("Please enter a valid choice.\n");
-                pauseExecution(); // Pause execution to allow the user to read the message
+                pauseExecution(); 
             }
         }
     }
 
-    return 0; // Return 0 to indicate successful program termination
+    return 0; 
 }

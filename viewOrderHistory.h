@@ -1,6 +1,27 @@
-#ifndef VIEW_ORDER_HISTORY_H
-#define VIEW_ORDER_HISTORY_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "utils.h"
 
-void viewOrderHistory();
+void viewOrderHistory()
+{
+    FILE *file = fopen("order_history.txt", "r");
+    if (file == NULL)
+    {
+        printf("No order history found.\n");
+        return;
+    }
 
-#endif // VIEW_ORDER_HISTORY_H
+    char line[256];
+    printf("\n--- Order History ---\n");
+    while (fgets(line, sizeof(line), file))
+    {
+        printf("%s", line);
+    }
+    fclose(file);
+    printf("=====================\n\n");
+    printf("\n");
+    pauseExecution();
+
+    
+}
