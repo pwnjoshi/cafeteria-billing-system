@@ -4,13 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "utils.h" 
-
-char currentItem[50];
-float currentPrice;
+#include "utils.h"
 
 void deleteItem()
 {
+    char currentItem[50];
+    float currentPrice;
+
     int index = 0, choice, found = 0;
 
     FILE *file = fopen("menu.txt", "r");
@@ -53,13 +53,12 @@ void deleteItem()
 
     index = 0;
 
-    // Read each item from the original file and write to the temporary file
     while (fscanf(file, "%s %f", currentItem, &currentPrice) != EOF)
     {
         index++;
         if (index != choice)
         {
-            fprintf(tempFile, "%s %.2f\n", currentItem, currentPrice); 
+            fprintf(tempFile, "%s %.2f\n", currentItem, currentPrice);
         }
         else
         {
@@ -70,14 +69,14 @@ void deleteItem()
     fclose(file);
     fclose(tempFile);
 
-    remove("menu.txt");                  
+    remove("menu.txt");
     rename("temp_menu.txt", "menu.txt");
 
     if (found)
     {
         printf("Item deleted successfully!\n");
         printf("Updated Menu:\n");
-        // Display the updated menu
+
         file = fopen("menu.txt", "r");
         if (!file)
         {
@@ -97,11 +96,10 @@ void deleteItem()
     else
     {
         printf("Item not found in the menu.\n");
-        remove("temp_menu.txt"); // Clean up temporary file if item not found
-
+        remove("temp_menu.txt"); 
         printf("=====================\n\n");
         pauseExecution();
     }
 }
 
-#endif // DELETE_ITEM_H
+#endif 

@@ -28,6 +28,7 @@ void signup() {
         printf("Unable to open file.\n");
         return;
     }
+    
     printf("===== Sign Up =====\n");
     printf("Enter new username: ");
     scanf("%s", newUser.username);
@@ -41,7 +42,6 @@ void signup() {
     printf("Sign up successful!\n");
     printf("You can now log in with your new credentials.\n");
     pauseExecution(); 
-    login(0); 
 }
 
 int login(int loggedIn) {

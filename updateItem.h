@@ -8,16 +8,16 @@
 
 void updateItem();
 
-char currentItem[50];
-float currentPrice;
-
-char newItemName[50];
-float newPrice;
-
 void updateItem()
 {
+    char currentItem[50];
+    float currentPrice;
+
+    char newItemName[50];
+    float newPrice;
+    
     int index = 0, choice = 0, found = 0;
-    FILE *file = fopen("menu.txt", "r"); 
+    FILE *file = fopen("menu.txt", "r");
     if (!file)
     {
         printf("Unable to open file.\n");
@@ -30,7 +30,7 @@ void updateItem()
     printf("Menu:\n");
     while (fscanf(file, "%s %f", currentItem, &currentPrice) != EOF)
     {
-        printf("%d. %s - ₹%.2f\n", ++index, currentItem, currentPrice);
+        printf("%d. %s - Rs.%.2f\n", ++index, currentItem, currentPrice);
     }
     fclose(file);
 
@@ -49,7 +49,7 @@ void updateItem()
         return;
     }
 
-    file = fopen("menu.txt", "r"); 
+    file = fopen("menu.txt", "r");
     FILE *tempFile = fopen("temp_menu.txt", "w");
     if (!tempFile)
     {
@@ -65,24 +65,24 @@ void updateItem()
         index++;
         if (index == choice)
         {
-            found = 1; 
+            found = 1;
             printf("Enter new name for %s: ", currentItem);
             scanf("%s", newItemName);
-            printf("Enter new price for %s (in ₹): ", newItemName);
+            printf("Enter new price for %s (in Rs.): ", newItemName);
             scanf("%f", &newPrice);
-            fprintf(tempFile, "%s %.2f\n", newItemName, newPrice); // Update item
+            fprintf(tempFile, "%s %.2f\n", newItemName, newPrice); 
         }
         else
         {
-            fprintf(tempFile, "%s %.2f\n", currentItem, currentPrice); // Write unchanged item
+            fprintf(tempFile, "%s %.2f\n", currentItem, currentPrice);
         }
     }
 
     fclose(file);
     fclose(tempFile);
 
-    remove("menu.txt");                  // Delete the original file
-    rename("temp_menu.txt", "menu.txt"); // Rename temp file to original file name
+    remove("menu.txt");                
+    rename("temp_menu.txt", "menu.txt"); 
 
     if (found)
     {
@@ -93,7 +93,7 @@ void updateItem()
         file = fopen("menu.txt", "r");
         while (fscanf(file, "%s %f", currentItem, &currentPrice) != EOF)
         {
-            printf("%s - ₹%.2f\n", currentItem, currentPrice);
+            printf("%s - Rs.%.2f\n", currentItem, currentPrice);
         }
         printf("\n=====================\n\n");
         fclose(file);
@@ -107,16 +107,15 @@ void updateItem()
         }
         else
         {
-        pauseExecution(); 
+            pauseExecution();
         }
-       
     }
     else
     {
         printf("Item not found in the menu.\n\n");
         remove("temp_menu.txt"); // Clean up temporary file if item not found
-        pauseExecution(); 
+        pauseExecution();
     }
 }
 
-#endif // UPDATE_ITEM_H
+#endif

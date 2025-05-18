@@ -8,8 +8,6 @@
 #include "viewItems.h" 
 #include "utils.h"
 
-
-
 void manageMenu(){
     int choice;
     printf("\n===== Manage Menu =====\n");
@@ -25,25 +23,21 @@ void manageMenu(){
         case 1:
             clearScreen(); 
             printf("\n===== Add Item =====\n");
-            printf("Adding item...\n"); 
             addItem();
             break;
         case 2:
             clearScreen();
             printf("\n===== Update Item =====\n");
-            printf("Updating item...\n");
             updateItem(); 
             break;
         case 3:
             clearScreen();
             printf("\n===== Delete Item =====\n");
-            printf("Deleting item...\n");
             deleteItem(); 
             break;
         case 4:
             clearScreen();
             printf("\n===== View Items =====\n");
-            printf("Viewing items...\n");
             viewItems(); 
             break;
         case 5:
@@ -55,4 +49,4 @@ void manageMenu(){
     }
 }
 
-#endif // MANAGE_MENU_H
+#endif 

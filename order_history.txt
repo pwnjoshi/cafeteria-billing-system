@@ -204,3 +204,34 @@ Discount: None
 TOTAL AMOUNT: $1.00
 ======================================
 
+======================================
+ORDER DETAILS
+======================================
+Customer: 1
+Date/Time: 2025-05-18 19:01:29
+--------------------------------------
+ITEMS ORDERED:
+  1 x1 - Rs.1.00
+--------------------------------------
+Total Items: 1
+Subtotal: Rs.1.00
+Discount: 1.0% (Rs.0.01)
+TOTAL AMOUNT: Rs.0.99
+======================================
+
+======================================
+ORDER DETAILS
+======================================
+Customer: d "c:\Users\joshi\Desktop\Cafeteria_Billing_System\Main_Program\" ; if ($?) { gcc processNewOrder.h 
+Date/Time: 2025-05-18 19:02:04
+--------------------------------------
+ITEMS ORDERED:
+  1 x1 - Rs.1.00
+  1 x1 - Rs.1.00
+--------------------------------------
+Total Items: 2
+Subtotal: Rs.2.00
+Discount: 1.0% (Rs.0.02)
+TOTAL AMOUNT: Rs.1.98
+======================================
+

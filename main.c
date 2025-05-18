@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "auth.h"          
-#include "manageMenu.h"      
-#include "processNewOrder.h"  
-#include "viewOrderHistory.h" 
+#include "auth.h"
+#include "manageMenu.h"
+#include "processNewOrder.h"
+#include "viewOrderHistory.h"
 #include "addItem.h"
 #include "deleteItem.h"
 #include "updateItem.h"
@@ -12,14 +12,15 @@
 
 int main()
 {
-    int choice;       
-    int loggedIn = 0; 
+    int choice;
+    int loggedIn = 0;
 
     while (1)
-    { 
+    {
         if (!loggedIn)
-        { 
-            clearScreen(); 
+        {
+            clearScreen();
+            printf("\n       ==== Ye Hai Aapka ====");
             printf("\n===== Cafeteria Billing System =====\n\n");
             printf("1. Sign Up\n");
             printf("2. Login\n");
@@ -30,27 +31,27 @@ int main()
             switch (choice)
             {
             case 1:
-             clearScreen(); 
+                clearScreen();
                 signup();
                 break;
             case 2:
-             clearScreen();
-                loggedIn = login(loggedIn); 
+                clearScreen();
+                loggedIn = login(loggedIn);
                 break;
             case 3:
                 exit(0);
             default:
-             clearScreen();
-                printf("Invalid choice!\n"); 
+                clearScreen();
+                printf("Invalid choice!\n");
                 printf("Please enter a valid choice.\n");
-               pauseExecution();
+                pauseExecution();
             }
         }
 
         else
-        { 
+        {
             clearScreen();
-            printf("\n===== Cafeteria Billing System =====\n");
+            printf("\n===== Cafeteria Billing System =====\n\n");
             printf("\n--- MAIN MENU ---\n");
             printf("1. Manage Menu\n");
             printf("2. Process New Order\n");
@@ -64,35 +65,32 @@ int main()
             switch (choice)
             {
             case 1:
-            clearScreen();
-                printf("Managing Menu...\n");
-                manageMenu(); 
+                clearScreen();
+                manageMenu();
                 break;
             case 2:
-            clearScreen();
-                printf("Processing New Order...\n");
-                processNewOrder(); 
+                clearScreen();
+                processNewOrder();
                 break;
             case 3:
-            clearScreen();
-                printf("Viewing Order History...\n");
-                viewOrderHistory(); 
+                clearScreen();
+                viewOrderHistory();
                 break;
             case 4:
-            clearScreen();
+                clearScreen();
                 printf("Logging out...\n");
                 loggedIn = 0;
                 break;
             case 5:
-                exit(0); 
+                exit(0);
             default:
-            clearScreen();
-                printf("Invalid choice!\n"); 
+                clearScreen();
+                printf("Invalid choice!\n");
                 printf("Please enter a valid choice.\n");
-                pauseExecution(); 
+                pauseExecution();
             }
         }
     }
 
-    return 0; 
+    return 0;
 }

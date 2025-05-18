@@ -22,6 +22,4 @@ void viewOrderHistory()
     printf("=====================\n\n");
     printf("\n");
     pauseExecution();
-
-    
 }

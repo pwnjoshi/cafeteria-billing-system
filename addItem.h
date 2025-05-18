@@ -12,8 +12,8 @@ int addItem() {
     char itemName[50];
     float itemPrice;
 
-    FILE *file = fopen("menu.txt", "a"); // Open the menu file in append mode
-
+    FILE *file = fopen("menu.txt", "a"); 
+    
     if (!file) {
         printf("Unable to open file.\n");
         return 1; 
@@ -22,19 +22,20 @@ int addItem() {
     printf("Enter item name: ");
     scanf("%s", itemName);
 
-    printf("Enter item price (in ₹): ");
+    printf("Enter item price (in Rs.): ");
     scanf("%f", &itemPrice);
 
-    fprintf(file, "%s %.2f\n", itemName, itemPrice); // Write the item to the file
+    fprintf(file, "%s %.2f\n", itemName, itemPrice); 
     fclose(file);
 
     printf("Item added successfully!\n\n");
     printf("=====================\n");
     printf("Item Name: %s\n", itemName);
-    printf("Item Price: ₹%.2f\n", itemPrice);
+    printf("Item Price: Rs.%.2f\n", itemPrice);
     printf("=====================\n\n");
+
     pauseExecution(); 
     return 0; 
 }
 
-#endif // ADD_ITEM_H
+#endif 

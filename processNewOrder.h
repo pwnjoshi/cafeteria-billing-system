@@ -18,10 +18,13 @@ typedef struct {
 void processNewOrder() {
     MenuItem menu[100];
     int menuCount = 0;
+
     OrderItem orders[100];
     int orderCount = 0;
+    
     float totalPrice = 0.0;
     char customerName[100];
+
     time_t orderTime;
     struct tm *timeinfo;
     char timeString[50];
@@ -50,7 +53,7 @@ void processNewOrder() {
     // Display the menu
     printf("Menu:\n");
     for (int i = 0; i < menuCount; i++) {
-        printf("%d. %s - ₹%.2f\n", i + 1, menu[i].name, menu[i].price);
+        printf("%d. %s - Rs.%.2f\n", i + 1, menu[i].name, menu[i].price);
     }
 
     while (1) {
@@ -104,7 +107,7 @@ void processNewOrder() {
             }
         }
         discountAmount = totalPrice * (discountPercentage / 100);
-        printf("Discount applied: ₹%.2f\n\n", discountAmount);
+        printf("Discount applied: Rs.%.2f\n\n", discountAmount);
     } else {
         printf("No discount applied.\n\n");
     }
@@ -112,11 +115,11 @@ void processNewOrder() {
     float originalPrice = totalPrice;
     totalPrice = totalPrice - discountAmount;
 
-     printf("\nSubtotal: ₹%.2f\n", originalPrice);
+     printf("\nSubtotal: Rs.%.2f\n", originalPrice);
     if (applyDiscount == 1) {
-        printf("Discount: %.1f%% (₹%.2f)\n", discountPercentage, discountAmount);
+        printf("Discount: %.1f%% (Rs.%.2f)\n", discountPercentage, discountAmount);
     }
-    printf("Total price: ₹%.2f\n", totalPrice);
+    printf("Total price: Rs.%.2f\n", totalPrice);
     printf("==============================\n");
     
     printf("Thank you for your order, %s!\n", customerName);
@@ -138,7 +141,7 @@ void processNewOrder() {
     fprintf(orderFile, "ITEMS ORDERED:\n");
     
     for (int i = 0; i < orderCount; i++) {
-        fprintf(orderFile, "  %s x%d - ₹%.2f\n",
+        fprintf(orderFile, "  %s x%d - Rs.%.2f\n",
                 menu[orders[i].menuIndex].name,
                 orders[i].quantity,
                 menu[orders[i].menuIndex].price * orders[i].quantity);
@@ -146,34 +149,36 @@ void processNewOrder() {
     
     fprintf(orderFile, "--------------------------------------\n");
     fprintf(orderFile, "Total Items: %d\n", orderCount);
-    fprintf(orderFile, "Subtotal: ₹%.2f\n", originalPrice);
+    fprintf(orderFile, "Subtotal: Rs.%.2f\n", originalPrice);
     
     if (applyDiscount == 1) {
-        fprintf(orderFile, "Discount: %.1f%% (₹%.2f)\n", discountPercentage, discountAmount);
+        fprintf(orderFile, "Discount: %.1f%% (Rs.%.2f)\n", discountPercentage, discountAmount);
     } else {
         fprintf(orderFile, "Discount: None\n");
     }
     
-    fprintf(orderFile, "TOTAL AMOUNT: ₹%.2f\n", totalPrice);
+    fprintf(orderFile, "TOTAL AMOUNT: Rs.%.2f\n", totalPrice);
     fprintf(orderFile, "======================================\n\n");
     
     fclose(orderFile);
      
     // Display the order summary to the user
-
+    pauseExecution();
+    clearScreen();
+    
     printf("\n======== ORDER SUMMARY ========\n");
     printf("Customer: %s\n", customerName);
     printf("Date/Time: %s\n\n", timeString);
     
     printf("Ordered Items:\n");
     for (int i = 0; i < orderCount; i++) {
-        printf("%s x%d - ₹%.2f\n",
+        printf("%s x%d - Rs.%.2f\n",
                menu[orders[i].menuIndex].name,
                orders[i].quantity,
                menu[orders[i].menuIndex].price * orders[i].quantity);
     }
-    printf("\nSubtotal: ₹%.2f\n", originalPrice);
-    printf("Total Price: ₹%.2f\n", totalPrice);
+    printf("\nSubtotal: Rs.%.2f\n", originalPrice);
+    printf("Total Price: Rs.%.2f\n", totalPrice);
 
     pauseExecution();
 }

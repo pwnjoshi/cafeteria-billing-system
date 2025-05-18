@@ -6,8 +6,10 @@
 #include "utils.h"
 
 void viewItems() {
+
     char itemName[50];
     float itemPrice;
+
     int index = 0;
     FILE *file = fopen("menu.txt", "r");
 
@@ -18,7 +20,7 @@ void viewItems() {
 
     printf("\n===== Current Menu =====\n");
     while (fscanf(file, "%s %f", itemName, &itemPrice) != EOF) {
-        printf("%d. %s - ₹%.2f\n", ++index, itemName, itemPrice);  // Changed $ to ₹
+        printf("%d. %s - Rs.%.2f\n", ++index, itemName, itemPrice);  
     }
     
     if (index == 0) {
@@ -31,4 +33,4 @@ void viewItems() {
     pauseExecution(); 
 }
 
-#endif // VIEW_ITEMS_H
+#endif 
