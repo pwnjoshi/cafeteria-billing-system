@@ -18,7 +18,7 @@ void viewItems() {
 
     printf("\n===== Current Menu =====\n");
     while (fscanf(file, "%s %f", itemName, &itemPrice) != EOF) {
-        printf("%d. %s - $%.2f\n", ++index, itemName, itemPrice);
+        printf("%d. %s - ₹%.2f\n", ++index, itemName, itemPrice);  // Changed $ to ₹
     }
     
     if (index == 0) {

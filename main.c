@@ -4,12 +4,11 @@
 #include "manageMenu.h"      
 #include "processNewOrder.h"  
 #include "viewOrderHistory.h" 
-#include "utils.h"
 #include "addItem.h"
 #include "deleteItem.h"
 #include "updateItem.h"
 #include "viewItems.h"
-
+#include "utils.h"
 
 int main()
 {
@@ -21,8 +20,7 @@ int main()
         if (!loggedIn)
         { 
             clearScreen(); 
-            printf("\n===== Cafeteria Billing System =====\n");
-            printf("\n--- MENU ---\n");
+            printf("\n===== Cafeteria Billing System =====\n\n");
             printf("1. Sign Up\n");
             printf("2. Login\n");
             printf("3. Exit\n");

@@ -22,16 +22,16 @@ int addItem() {
     printf("Enter item name: ");
     scanf("%s", itemName);
 
-    printf("Enter item price: ");
+    printf("Enter item price (in ₹): ");
     scanf("%f", &itemPrice);
 
-    fprintf(file, "%s %.2f\n", itemName, itemPrice); // Write the new item to the file
+    fprintf(file, "%s %.2f\n", itemName, itemPrice); // Write the item to the file
     fclose(file);
 
     printf("Item added successfully!\n\n");
     printf("=====================\n");
     printf("Item Name: %s\n", itemName);
-    printf("Item Price: %.2f\n", itemPrice);
+    printf("Item Price: ₹%.2f\n", itemPrice);
     printf("=====================\n\n");
     pauseExecution(); 
     return 0; 

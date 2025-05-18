@@ -12,6 +12,15 @@ void signup();
 int login(int loggedIn);
 
 void signup() {
+    printf("Enter Password to add new user: ");
+    char password[50];
+    scanf("%s", password);
+    if (strcmp(password, "admin") != 0) {
+        printf("Incorrect password. Access denied.\n");
+        pauseExecution();
+        return;
+    }
+
     struct User newUser;
     FILE *file = fopen("users.txt", "a");
 

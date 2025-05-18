@@ -30,7 +30,7 @@ void updateItem()
     printf("Menu:\n");
     while (fscanf(file, "%s %f", currentItem, &currentPrice) != EOF)
     {
-        printf("%d. %s - %.2f\n", ++index, currentItem, currentPrice);
+        printf("%d. %s - ₹%.2f\n", ++index, currentItem, currentPrice);
     }
     fclose(file);
 
@@ -68,7 +68,7 @@ void updateItem()
             found = 1; 
             printf("Enter new name for %s: ", currentItem);
             scanf("%s", newItemName);
-            printf("Enter new price for %s: ", newItemName);
+            printf("Enter new price for %s (in ₹): ", newItemName);
             scanf("%f", &newPrice);
             fprintf(tempFile, "%s %.2f\n", newItemName, newPrice); // Update item
         }
@@ -93,7 +93,7 @@ void updateItem()
         file = fopen("menu.txt", "r");
         while (fscanf(file, "%s %f", currentItem, &currentPrice) != EOF)
         {
-            printf("%s - %.2f\n", currentItem, currentPrice); // Display updated menu
+            printf("%s - ₹%.2f\n", currentItem, currentPrice);
         }
         printf("\n=====================\n\n");
         fclose(file);
