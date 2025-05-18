@@ -112,13 +112,22 @@ void processNewOrder() {
     float originalPrice = totalPrice;
     totalPrice = totalPrice - discountAmount;
 
+     printf("\nSubtotal: $%.2f\n", originalPrice);
+    if (applyDiscount == 1) {
+        printf("Discount: %.1f%% ($%.2f)\n", discountPercentage, discountAmount);
+    }
+    printf("Total price: $%.2f\n", totalPrice);
+    printf("==============================\n");
+    
+    printf("Thank you for your order, %s!\n", customerName);
+
+    
     // Save the order to an order history file
     FILE *orderFile = fopen("order_history.txt", "a");
     if (!orderFile) {
         printf("Unable to open order history file.\n");
         return;
     }
-
     // Write detailed order information to the history file
     fprintf(orderFile, "======================================\n");
     fprintf(orderFile, "ORDER DETAILS\n");
@@ -149,6 +158,8 @@ void processNewOrder() {
     fprintf(orderFile, "======================================\n\n");
     
     fclose(orderFile);
+     
+    // Display the order summary to the user
 
     printf("\n======== ORDER SUMMARY ========\n");
     printf("Customer: %s\n", customerName);
@@ -161,14 +172,8 @@ void processNewOrder() {
                orders[i].quantity,
                menu[orders[i].menuIndex].price * orders[i].quantity);
     }
-    
     printf("\nSubtotal: $%.2f\n", originalPrice);
-    if (applyDiscount == 1) {
-        printf("Discount: %.1f%% ($%.2f)\n", discountPercentage, discountAmount);
-    }
-    printf("Total price: $%.2f\n", totalPrice);
-    printf("==============================\n");
-    
-    printf("Thank you for your order, %s!\n", customerName);
+    printf("Total Price: $%.2f\n", totalPrice);
+
     pauseExecution();
 }
